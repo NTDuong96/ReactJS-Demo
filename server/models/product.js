@@ -6,10 +6,6 @@ const productSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  description: {
-    type: String,
-    required: true
-  },
   price: {
     type: Number,
     required: true,
@@ -17,16 +13,16 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true
+    trim: true
+  },
+  description: {
+    type: String,
+    trim: true
   },
   inStock: {
     type: Boolean,
     default: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
   }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);
